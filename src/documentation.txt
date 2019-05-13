@@ -1,0 +1,21 @@
+Steps to build the app:
+-------------------------------------------------------------------------
+
+Data pre-processing:
+
+1. Copied the data from mail onto a spreadsheet
+2. Converted the spreadsheet to csv file
+3. Used an online tool - https://www.csvjson.com/csv2json to convert the csv file to json
+
+Angular App:
+
+1. Created a new angular app using angular CLI
+2. Installed the chart.js and ng2-charts npm packages
+3. Installed the bootstrap library
+4. Included chart.js libarary within index.html
+5. Included bootstrap library within styles.css
+6. Imported the charts module within the app.module 
+
+
+
+
