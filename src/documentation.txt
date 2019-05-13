@@ -15,6 +15,7 @@ Angular App:
 4. Included chart.js libarary within index.html
 5. Included bootstrap library within styles.css
 6. Imported the charts module within the app.module 
+7. Create Navigation headers with different types of charts included
 
 
 
