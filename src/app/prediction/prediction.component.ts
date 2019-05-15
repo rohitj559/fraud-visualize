@@ -24,11 +24,11 @@ export class PredictionComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form);
+    // console.log(form);
     const month = (new Date(form.value.month).getTime() / 1000);
     this.formSubscribe = this.formDataService.getPrediction(month, form.value.activeCards).subscribe(
         responsePrediction => {
-          console.log(responsePrediction);
+          // console.log(responsePrediction);
           this.predictedValue = responsePrediction;
           if (this.predictedValue) {
             this.predicted = true;

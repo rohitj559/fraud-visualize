@@ -45,11 +45,6 @@ export class RadarChartComponent implements OnInit, OnDestroy {
       },
       error => this.errorMessage =  error as any
     );
-
-    this.radarDataService.getPrediction().subscribe(
-      responsePrediction => {
-        console.log(responsePrediction);
-      });
   }
 
   ngOnDestroy() {
