@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../data.service';
-import { IChartData } from '../shared/chart-data';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,12 +12,6 @@ export class BarChartComponent implements OnInit, OnDestroy {
   barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
-    // scales: {
-    //   xAxes: [{
-    //     display: true,
-    //     labelString: 'Months'
-    //   }]
-    // }
   };
   barChartType = 'bar';
   barChartLegend = true;
