@@ -1,0 +1,27 @@
+<nav class='navbar navbar-expand navbar-light bg-white'>
+    <a class='navbar-brand'><h2>Sample Data</h2></a>
+</nav>
+<div class="table-responsive">
+    <table class="table" *ngIf="rippleData && rippleData.length">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Active Cards</th>
+          <th>Fraud Loss</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rippleData">
+          <td>  
+            {{row.Month}}
+          </td>
+          <td>  
+            {{row.Active_Cards}}
+          </td>
+          <td>  
+            {{row.Fraud_Loss}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
