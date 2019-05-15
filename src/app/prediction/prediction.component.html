@@ -1,0 +1,42 @@
+<nav class='navbar navbar-expand navbar-light bg-white'>
+    <a class='navbar-brand'><h2>Prediction</h2></a>
+    <!-- <ul class='nav nav-pills'>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/visualization']">Actual Data</a></li>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/prediction']">Prediction</a></li>
+    </ul> -->
+  </nav>
+
+<div class="container">
+  <!-- <div>
+    <h2>
+      Prediction
+    </h2>
+  </div> -->
+  <br>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="month">Month</label>
+        <input type="text" 
+               class="form-control" 
+               id="month" 
+               required 
+               placeholder="yyyy-dd"
+               ngModel
+               name="month">
+      </div>
+      <div class="form-group">
+        <label for="cardsCount">Cards Count</label>
+        <input type="number" 
+               class="form-control" 
+               id="cardsCount" 
+               required
+               ngModel
+               name="activeCards">
+      </div>
+      <button type="submit" class="btn btn-success">Predict</button>
+  </form>
+  <br>
+  <div class="alert alert-success" role="alert" *ngIf="predicted">
+    Count of Fraud Loss incurred: <strong>{{predictedValue}}</strong>
+  </div>  
+</div>
