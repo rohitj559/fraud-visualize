@@ -9,12 +9,21 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class DataService {
   dataUrl = 'api/data/data.json';
+  modelUrl = 'http://localhost:5000/api';
 
   constructor(private http: HttpClient) { }
 
   getData(): Observable<IData[]> {
     // console.log(this.dataUrl);
     return this.http.get<IData[]>(this.dataUrl).pipe(
+      // tap(data => console.log('All: ' + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  getPrediction(month: number, activeCards: number): Observable<number> {
+    // console.log(month, activeCards);
+    return this.http.post<number>(this.modelUrl, { Month: month, Active_Cards: activeCards }).pipe(
       // tap(data => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
