@@ -1,32 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../data.service';
 import { IChartData } from '../shared/chart-data';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.css']
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent implements OnInit, OnDestroy {
   errorMessage: string;
   barChartOptions = {
     scaleShowVerticalLines: false,
-    responsive: true
+    responsive: true,
+    // scales: {
+    //   xAxes: [{
+    //     display: true,
+    //     labelString: 'Months'
+    //   }]
+    // }
   };
   barChartType = 'bar';
   barChartLegend = true;
   barChartLabels: string[] = [];
   barChartData: any[] = [];
+  private barSubscribe: Subscription;
 
-  constructor(private dataService: DataService) { }
+  constructor(private barDataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe(
+    this.barSubscribe = this.barDataService.getData().subscribe(
       responseData => {
-        let months: string[] = [];
-        let activeCards: number[] = [];
-        let fraudLoss: number[] = [];
-        let labels: string[] = [];
+        const months: string[] = [];
+        const activeCards: number[] = [];
+        const fraudLoss: number[] = [];
+        const labels: string[] = [];
         responseData.forEach(row => {
           months.push(row.Month);
           activeCards.push(row.Active_Cards);
@@ -44,5 +52,9 @@ export class BarChartComponent implements OnInit {
       },
       error => this.errorMessage =  error as any
     );
+  }
+
+  ngOnDestroy() {
+    this.barSubscribe.unsubscribe();
   }
 }
