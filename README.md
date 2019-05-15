@@ -17,3 +17,8 @@ This is a simple project to visualize and predict Fraud analytics. The app is bu
 6. The Regression model for the app is pre-buit and stored as `fraud-visualize/regression-model/model.pkl`. However, we can create the model again by running the command `python3 model.py`
 
 7. For testing the model, try doing `python3 request.py`. Note: Step 7 should be executed only after step 5
+
+Note:  If you run into CORS issue while making form submission on UI, try loading your browser(chrome) using the below command -
+`chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security`
+
+After running the above command on START prompt(for windows), load the app with the url - `http://localhost:4200`  
