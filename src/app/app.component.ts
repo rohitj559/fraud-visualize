@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Fraud Loss Visualization';
+  title = 'Fraud Loss Visualization and Prediction System';
 }
