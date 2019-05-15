@@ -1,6 +1,6 @@
 # FraudVisualize
 
-This is a simple project to visualize and predict Fraud analytics. The app is built on Angular 7.x for rendering the visualization and prediction form. Data for visualization is provided as a JSON. Model used for prediction is built using python and Flask 
+This is a simple project to visualize and predict Fraud analytics. The app is built on Angular 7.x for rendering the visualization for data and make a prediction on target attribute(Fraud Loss) using prediction form. Data for visualization is provided as a JSON. Model used for prediction is built using python and Flask. 
 
 ## How to run and use the app
 
