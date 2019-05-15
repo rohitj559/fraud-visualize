@@ -22,24 +22,17 @@ export class LineChartComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getData().subscribe(
       responseData => {
-        let months: string[] = [];
-        let activeCards: number[] = [];
-        let fraudLoss: number[] = [];
-        let labels: string[] = [];
-        responseData.forEach(row => {
-          months.push(row.Month);
-          activeCards.push(row.Active_Cards);
-          fraudLoss.push(row.Fraud_Loss);
-        });
-        Object.keys(responseData[0]).forEach(key => {
-          labels.push(key);
-        });
+      console.log(responseData);
+      const months = responseData.map(res => res.Month);
+      const activeCards = responseData.map(res => res.Active_Cards);
+      const fraudLoss = responseData.map(res => res.Fraud_Loss);
 
-        this.chartLabels = months;
-        this.chartData  = [
-          {data: activeCards, label: 'Active_Cards'},
-          {data: fraudLoss, label: 'Fraud_Loss'}
-        ];
+      this.chartLabels = months;
+      this.chartData  = [
+        {data: activeCards, label: 'Active_Cards'},
+        {data: fraudLoss, label: 'Fraud_Loss'}
+      ];
+
       },
       error => this.errorMessage =  error as any
     );
